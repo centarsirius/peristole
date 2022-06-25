@@ -57,6 +57,7 @@ plt.show()
 
 chi0=np.arctan((np.sin(alpha)*np.sin(big_phi0))/((np.cos(alpha)*np.sin(zeta))-(np.cos(big_phi0)*np.sin(alpha)*np.cos(zeta))))
 
+"""
 for ang in range(0,3):
     a_bar=(a*np.sin(i[ang])*(1-e**2))/(1+e*np.sin(o_peri))
     r= a*(1-e**2)/(1+e*np.cos(  phi))
@@ -136,4 +137,4 @@ for ang in range(0,3):
     plt.tick_params(axis='both', direction='in', which='major', length=10)
     plt.legend(loc='center right', title='Inclination angle')
     plt.title('Time delay due to latitudinal lensing (subdominant image)', fontsize=20, fontweight='bold')
-plt.show()
+plt.show()"""

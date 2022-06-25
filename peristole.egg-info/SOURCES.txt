@@ -1,0 +1,14 @@
+LICENSE
+README.md
+setup.py
+peristole/__init__.py
+peristole/amp.py
+peristole/ca1.py
+peristole/geo_grav_td.py
+peristole/imsc_2.py
+peristole/lat_td.py
+peristole/rot_td.py
+peristole.egg-info/PKG-INFO
+peristole.egg-info/SOURCES.txt
+peristole.egg-info/dependency_links.txt
+peristole.egg-info/top_level.txt

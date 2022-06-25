@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='peristole',
-    version='0.1.0',
+    version='1.0.0',
     license="MIT",
     url='https://github.com/centarsirius/peristole',
     descriptions="PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL lEnsing",

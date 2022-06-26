@@ -6,7 +6,12 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6744001.svg)](https://doi.org/10.5281/zenodo.6744001)
 [![Documentation Status](https://readthedocs.org/projects/maglimit/badge/?version=latest)](https://maglimit.readthedocs.io/en/latest/?badge=latest)
 
-## PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL lEnsing
+### PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL lEnsing
 
-PERISTOLE plots graphs for time delay caused due to different aspects of lensing such as latitudinal, rotational, geomterical, gravitational time delays.
-This project was inspired by the series of Rafikov & Lai papers from 2005-06 that focused on a binary pulsar system with its speciality being that the companion pulsar has an almost edge-on configuration with our line of sight which presents a way to test different gravitational problems.
+PERISTOLE plots the time delay caused due to gravitational lensing and other aspects of a pulsar. Current support exists for graphing :
+- latitudinal time delay
+- rotational time delay
+- geomterical time delay
+- gravitational time delay
+
+The inspiration for this project came from papers written by Rafikov & Lai, [2005]( https://doi.org/10.1086/429146), [2006](https://doi.org/10.1086/500346) on the double pulsar system J0737-3039. The speciality of this double pulsar system being that the companion pulsar has an almost edge-on configuration with respect to our line of sight which > presents an unprecedented natural laboratory for testing our understanding of general relativity and pulsar magnetosphere physics

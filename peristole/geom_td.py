@@ -133,19 +133,10 @@ def delay_combined(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c
     
     for j in range(len(i)):
         plt.plot(np.degrees(psi_vals), combined[j,:])    
-        
-    plt.xlabel('Longitude (degrees)')
-    plt.ylabel('$(\Delta t)_{geom+grav} (\mu s)$')  
-    if flag==1:
-        plt.title('Sub-dominant image')
-    else:
-        plt.title('Dominant image')
-    plt.legend(i)
-    plt.show()
     
     plt.xlim(89,91)
     plt.xlabel('$Longitude \quad (degree)$', fontsize=15)
-    plt.ylabel(r'$(\Delta t)_{geom+grav}^{(lat)} \quad (\mu s)$', fontsize=15)
+    plt.ylabel(r'$(\Delta t)_{geom+grav} \quad (\mu s)$', fontsize=15)
     plt.tick_params(axis='both', direction='in', which='major', length=10)
     if flag==1:
         plt.title('Combined time delay due to geomtric and gravitational lensing (subdominant image)', fontsize=20, fontweight='bold')

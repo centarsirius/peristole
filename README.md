@@ -15,7 +15,7 @@ PERISTOLE plots the time delay caused due to gravitational lensing and other asp
 - gravitational time delay
 
 The inspiration for this project came from papers written by Rafikov & Lai, [2005]( https://doi.org/10.1086/429146), [2006](https://doi.org/10.1086/500346) on the double pulsar system J0737-3039. The speciality of this system being the companion pulsar, which has an almost edge-on configuration w.r.t our line of sight which 
-> presents an unprecedented natural laboratory for testing our understanding of general relativity and pulsar magnetosphere physics
+> ***presents an unprecedented natural laboratory for testing our understanding of general relativity and pulsar magnetosphere physics***
 
 ## Installation
 

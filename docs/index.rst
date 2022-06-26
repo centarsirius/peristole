@@ -10,7 +10,7 @@ Welcome to PERISTOLE's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-   PERISTOLE.rst
+   peristole.rst
 
 
 Indices and tables

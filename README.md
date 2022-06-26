@@ -25,6 +25,11 @@ The package is installable on Python 3.x. To install the package,
 ```python
 pip install peristole
 ```
+or
+
+```python
+pip install git+https://github.com/centarsirius/peristole
+```
 
 ### Using `GitHub`
 Otherwise, clone this repo, and follow the below specified commands

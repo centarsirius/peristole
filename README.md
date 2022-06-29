@@ -4,7 +4,7 @@
 ![](https://img.shields.io/github/license/centarsirius/peristole)
 [![pypi](https://img.shields.io/pypi/v/maglimit)](https://pypi.org/project/peristole/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6744001.svg)](https://doi.org/10.5281/zenodo.6744001)
-[![Documentation Status](https://readthedocs.org/projects/maglimit/badge/?version=latest)](https://maglimit.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/peristole/badge/?version=latest)](https://peristole.readthedocs.io/en/latest/?badge=latest)
 
 ## PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL lEnsing
 

@@ -45,4 +45,4 @@ pip install -e .
 
 
  ## Future Goals:
- - We currently have a constrained use case but we hope to expand the input pool and also use the query system to fetch pulsar properties to provide a smooth user experience. 
+ - We currently have a constrained use case but we hope to expand the input pool and also use the query system to fetch pulsar properties to provide a smooth user experience

@@ -21,7 +21,9 @@ a=8.784E7 #orbital semimajor axis
 M_c=1.25*M_sun
 a_bar = a*np.sin(i)*(1-e**2)/(1+e*np.sin(o_peri))
 R_g = 2*G*M_c/c**2
-R_E = (2*R_g*a)**0.5
+R_e = (2*R_g*a)**0.5
+R_E=R_e/1000
+#R_E=2500
 eta=np.radians(45) #eta - angle bw orbit and spin axis projection
 zeta=np.radians(50) #zeta - angle of separation bw line of sight and spin axis
 big_phi=phi-o_peri #orbital true anomaly
@@ -45,7 +47,7 @@ for ang in range(0,3):
         plt.plot(np.degrees(phi), dtr_d, linestyle='--', dashes=[12,5], label= '$90^{o}.28$', color='firebrick') #label=np.degrees(i[ang]))
     else:
         plt.plot(np.degrees(phi), dtr_d, label= '$90^{o}.56$', color='black') #label=np.degrees(i[ang]))
-    #plt.plot(phi, dtln)
+   
     plt.xlim([89,91])
     plt.locator_params(nbins=4)
     plt.xlabel('$Longitude \quad (degree)$', fontsize=15)

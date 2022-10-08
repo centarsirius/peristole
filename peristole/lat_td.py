@@ -2,14 +2,14 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 # defining the constants
- 
+
 G = 6.674*1e-11 # in SI units 
 c = 3e8 # in SI units
 M_0 = 1.989e30 # mass of the sun 
 psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
 #the true anomaly measured from the ascending node of the pulsar
 
-def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7, i=[90.14,90.28,90.56], M_c=1.25, eta=45, zeta=50, alpha=4, big_phi0=115, flag=0, dummy='default'):
+def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7E-3, i=[90.14,90.28,90.56], M_c=1.25, eta=45, zeta=50, alpha=4, big_phi0=115, flag=0, dummy='default'):
     """
     The user has to provide information/parameters about 
     the double pulsar system in the following order - semi 
@@ -26,33 +26,31 @@ def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7, i=[90.14,90.28,90.56]
     zeta - angle of separation bw line of sight and spin axis
     alpha - angle between spin axis and magnetic axis
     """
-    
     phi = psi_vals - np.radians(omega)*np.ones(len(psi_vals))
     r = a*(1-e**2)/(np.ones(len(phi))+e*np.cos(phi))
     R_g = 2*G*M_c*M_0/c**2
-    chi0=(np.sin(np.radians(alpha))*np.sin(np.radians(big_phi0)))/((np.cos(np.radians(alpha))*np.sin(np.radians(zeta)))-(np.cos(np.radians(big_phi0))*np.sin(np.radians(alpha))*np.cos(np.radians(zeta))))
     lat_delay = np.zeros((len(i), len(psi_vals)))
+    chi0=(np.sin(np.radians(alpha))*np.sin(np.radians(big_phi0)))/((np.cos(np.radians(alpha))*np.sin(np.radians(zeta)))-(np.cos(np.radians(big_phi0))*np.sin(np.radians(alpha))*np.cos(np.radians(zeta))))
     
     for j in range(len(i)):
         R_s = r*(np.ones(len(psi_vals))-(np.sin(np.radians(i[j])))**2*(np.sin(psi_vals))**2)**0.5
         a_pll = a*np.sin(np.radians(i[j]))*(1-e**2)/(1+e*np.sin(np.radians(omega))) 
         R_E = (2*R_g*a_pll)**0.5
-        omega_p=1/time
+        omega_p=2*np.pi/time
         if flag==1:
-           R_pm = 0.5*(R_s+(R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5)
-           delta_R_pm = -R_pm - R_s
-           lat_delay[j,:] = -(delta_R_pm*time/a_pll)*((np.cos(np.radians(eta))*np.cos(phi)+(np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(phi)))/(np.sin(np.radians(zeta))*chi0*np.sqrt(1-np.sin(np.radians(i[j]))**2*np.sin(phi)**2)))
+           delta_R_pm = 0.5*(-(R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5-R_s)
+           lat_delay[j,:] = (delta_R_pm/R_s)*(r/a_pll)*(np.cos(np.radians(eta))*np.cos(psi_vals)+np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(psi_vals))/(omega_p*np.sin(np.radians(zeta))*chi0)
         else:
-           R_pm = 0.5*(R_s+(R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5)
-           delta_R_pm = R_pm - R_s
-           lat_delay[j,:] = -(delta_R_pm*time/a_pll)*((np.cos(np.radians(eta))*np.cos(phi)+(np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(phi)))/(np.sin(np.radians(zeta))*chi0*np.sqrt(1-np.sin(np.radians(i[j]))**2*np.sin(phi)**2)))
+           delta_R_pm = 0.5*((R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5-R_s) 
+           lat_delay[j,:] = (delta_R_pm/R_s)*(r/a_pll)*(np.cos(np.radians(eta))*np.cos(psi_vals)+np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(psi_vals))/(omega_p*np.sin(np.radians(zeta))*chi0)
         if dummy == 'default':
-            plt.plot(np.degrees(psi_vals), lat_delay[j,:])
+            plt.plot(np.degrees(psi_vals), lat_delay[j,:]*1e6)
     
     if dummy=='only value':
         return lat_delay
 
     plt.xlim(89,91)
+    plt.locator_params(nbins=4)
     plt.xlabel('$Longitude \quad (degree)$', fontsize=15)
     plt.ylabel(r'$(\Delta t)_{L}^{(lat)} \quad (\mu s)$', fontsize=15)
     plt.tick_params(axis='both', direction='in', which='major', length=10)
@@ -65,14 +63,3 @@ def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7, i=[90.14,90.28,90.56]
     
 # example call of this function -     
 # delay_lat(8.784e8, 0.0878, 73.8, 22.7, [90.14, 90.28, 90.56], 1.25, 45, 50, 4, 115)
-
-    
-
-"""
-(delta_R_pm*time/a_pll)*((np.cos(np.radians(eta))*np.cos(np.radians(phi))+(np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(np.radians(phi))))/(np.sin(np.radians(zeta))*np.tan(np.radians(chi0))*np.sqrt(1-np.sin(np.radians(i[j]))**2*np.sin(np.radians(phi))**2))) #eq 24
-
-dtl_d=(dri/(a_bar*omega_p))*((np.cos(eta)*np.cos(phi)+(np.cos(i)*np.sin(eta)*np.sin(phi)))/(np.sin(zeta)*np.tan(chi0)*np.sqrt(1-np.sin(i)**2*np.sin(phi)**2))) #eq 24
-
-
-dtl_s=(drn/(a_bar*omega_p))*((np.cos(eta)*np.cos(phi)+(np.cos(i)*np.sin(eta)*np.sin(phi)))/(np.sin(zeta)*np.tan(chi0)*np.sqrt(1-np.sin(i)**2*np.sin(phi)**2)))
-"""

@@ -150,5 +150,5 @@ def delay_combined(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c
 
 # for demos, run - 
 # delay_geom()
-# delay grav()
+# delay_grav()
 # delay_combined()

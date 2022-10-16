@@ -9,6 +9,7 @@ peristole/grav_td.py
 peristole/imsc_2.py
 peristole/lat_td.py
 peristole/proper_rot_graph.py
+peristole/pulsar_class.py
 peristole/rot_td.py
 peristole/test_cl.py
 peristole.egg-info/PKG-INFO

@@ -44,7 +44,7 @@ class pulsar:
 		self.big_phi0 = big_phi0
 
 def details(pulsar):
-	print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle)
+	print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.eta, pulsar.zeta)
 	
 def amp_plot_demo(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.25, flag=0): 
     """

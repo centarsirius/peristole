@@ -8,7 +8,9 @@ peristole/geom_td.py
 peristole/grav_td.py
 peristole/imsc_2.py
 peristole/lat_td.py
+peristole/proper_rot_graph.py
 peristole/rot_td.py
+peristole/test_cl.py
 peristole.egg-info/PKG-INFO
 peristole.egg-info/SOURCES.txt
 peristole.egg-info/dependency_links.txt

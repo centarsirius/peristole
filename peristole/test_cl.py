@@ -116,12 +116,12 @@ def amp_plot(pulsar, flag=0):
 
 
 # Driver Code
-pulsar1 = pulsar(20)
-pulsar1.a=8.784*1e8
-pulsar1.e=0.0878
-pulsar1.omega=73.8
-pulsar1.i=[90.2,90.4,90.6, 90.8, 91]
+# pulsar1 = pulsar(20)
+# pulsar1.a=8.784*1e8
+# pulsar1.e=0.0878
+# pulsar1.omega=73.8
+# pulsar1.i=[90.2,90.4,90.6, 90.8, 91]
 
-details(pulsar1)
-amp_plot(pulsar1)
-amp_plot_demo()
+# details(pulsar1)
+# amp_plot(pulsar1)
+# amp_plot_demo()

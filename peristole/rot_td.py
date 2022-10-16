@@ -9,7 +9,7 @@ M_0 = 1.989e30 # mass of the sun
 psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
 #the true anomaly measured from the ascending node of the pulsar
 
-def delay_rot(a=8.784E8, e=0.0878, omega=73.8, time=22.7E-3, i=[90.14,90.28,90.56], M_c=1.25, eta=45, zeta=50, alpha=4, flag=0, dummy='default'):
+def delay_rot(a=8.784E8, e=0.0878, omega=73.8, time=22.7E-3, i=[90.14,90.28,90.56], M_c=1.25, eta=45, zeta=50, flag=0, dummy='default'):
     """
     The user has to provide information/parameters about 
     the double pulsar system in the following order - semi 

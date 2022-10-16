@@ -10,4 +10,3 @@ from .rot_td import delay_rot
 from .lat_td import  delay_lat
 from .test_cl import amp_plot_demo
 from .test_cl import amp_plot
-from .test_cl import pulsar

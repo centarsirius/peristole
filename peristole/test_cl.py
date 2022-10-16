@@ -28,6 +28,21 @@ class pulsar:
 	def angle(self, angle):
 		self.angle = angle
 
+	def spin(self, spin):
+		self.spin = spin
+
+	def eta(self, eta):
+		self.eta = eta
+
+	def zeta(self, zeta):
+		self.zeta = zeta
+    
+	def alpha(self, alpha):
+		self.alpha = alpha
+
+	def big_phi0(self, big_phi0):
+		self.big_phi0 = big_phi0
+
 def details(pulsar):
 	print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle)
 	
@@ -120,7 +135,7 @@ def amp_plot(pulsar, flag=0):
 # pulsar1.axis=8.784*1e8
 # pulsar1.ecc=0.0878
 # pulsar1.omega=73.8
-# pulsar1.angle=[0, 45, 90,90.2, 90.4,91, 135, 180]
+# pulsar1.angle=[90.2, 90.4,91]
 
 # details(pulsar1)
 # amp_plot(pulsar1)

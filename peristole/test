@@ -1,0 +1,23 @@
+
+class pulsar:
+    mass=69
+    m_axis=420
+    eta=4
+    # The init method or constructor
+    def __init__(self, mass):
+        self.mass=mass
+
+    # Adds an instance variable
+    def axis(self, axis):
+        self.m_axis = axis
+
+    def axis(self, eta):
+        self.eta = eta
+
+pulsar1=pulsar(20)
+pulsar1.m_axis=100
+print(pulsar1.mass)
+print(pulsar1.m_axis)
+print(pulsar.mass)
+print(pulsar.m_axis)
+print(pulsar.eta)

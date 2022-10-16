@@ -9,7 +9,7 @@ M_0 = 1.989e30 # mass of the sun
 psi_vals = np.linspace(np.radians(89), np.radians(91), 100)
 # the true anomaly measured from the ascending node of the pulsar
 
-def amp_plot(a=8.784*1e8, e=0.0878, omega=np.radians(73.8), i=[90.14,90.28,90.56], M_c=1.25, flag=0): 
+def amp_plot(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.25, flag=0): 
     """
     Provides amplification factor for the images plotted as a function of 
     longitude.
@@ -23,13 +23,13 @@ def amp_plot(a=8.784*1e8, e=0.0878, omega=np.radians(73.8), i=[90.14,90.28,90.56
     set to 1  
     """
 
-    phi = psi_vals - omega*np.ones(len(psi_vals))
+    phi = psi_vals - np.radians(omega)*np.ones(len(psi_vals))
     r = a*(1-e**2)/(np.ones(len(phi))+e*np.cos(phi))
     R_g = 2*G*M_c*M_0/c**2
     amplification = np.zeros((len(i), len(psi_vals)))
     for j in range(len(i)):
         R = r*(1-(np.sin(np.radians(i[j])))**2*(np.sin(psi_vals))**2)**0.5
-        a_pll = a*np.sin(np.radians(i[j]))*(1-e**2)/(1+e*np.sin(omega))
+        a_pll = a*np.sin(np.radians(i[j]))*(1-e**2)/(1+e*np.sin(np.radians(omega)))
         R_E = (2*R_g*a_pll)**0.5
         u = R/R_E
         if flag == 1:

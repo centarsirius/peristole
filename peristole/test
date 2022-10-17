@@ -1,4 +1,4 @@
-
+import numpy as np
 class pulsar:
     mass=68
     m_axis=421
@@ -27,10 +27,9 @@ def check(pulsar):
     print(pulsar.m_axis)
 
 def double(pulsar):
-    pulsar.mass = 2*pulsar.mass
+    pulsar.mass = np.radians(pulsar.mass)
+    print(pulsar.mass)
 
 check(pulsar)
 check(pulsar1)
 double(pulsar)
-print(pulsar.mass)
-print(pulsar.__dict__)

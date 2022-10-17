@@ -137,7 +137,7 @@ def amp_plot(pulsar, flag=0):
     plt.legend(pulsar.angle)
     plt.show()
 
-demo=pulsar()
+
 # Driver Code
 # pulsar1 = pulsar(20)
 # pulsar1.axis=3E8

@@ -8,4 +8,5 @@ from .geom_td import *
 from .geom_td import *
 from .rot_td import *
 from .lat_td import  *
-from .test_cl import *
+#from .test_cl import *
+from .pulsar_class import *

@@ -10,11 +10,11 @@ psi_vals = np.linspace(np.radians(89), np.radians(91), 100)
 # the true anomaly measured from the ascending node of the pulsar
 
 class pulsar:
-    a=8.784E8
-    e=0.0878
-    o=73.8
+    axis=8.784E8
+    ecc=0.0878
+    omega=73.8
     time =22.7E-3
-    i=[90.14,90.28,90.56]
+    angle=[90.14,90.28,90.56]
     mass=1.25
     eta=45
     zeta=50

@@ -24,17 +24,17 @@ class pulsar:
     def __init__(self, mass):
         self.mass=mass
     
-    def axis(self, a):
-        self.a = a
+    def a(self, axis):
+        self.axis = axis
 
-    def ecc(self, e):
-        self.e = e
+    def e(self, ecc):
+        self.ecc = ecc
 
-    def omega(self, o):
-        self.o = o
+    def o(self, omega):
+        self.omega = omega
 
-    def angle(self, i):
-        self.i = i
+    def i(self, angle):
+        self.angle = angle
 
     def spin(self, spin):
         self.spin = spin
@@ -52,7 +52,7 @@ class pulsar:
         self.big_phi0 = big_phi0
 
 def details(pulsar):
-    print(pulsar.mass, pulsar.a, pulsar.e, pulsar.o, pulsar.i, pulsar.eta, pulsar.zeta)
+    print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.eta, pulsar.zeta)
     
 # def amp_plot_demo(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.25, flag=0): 
 #     """
@@ -110,13 +110,13 @@ def amp_plot(pulsar, flag=0):
     set to 1  
     """
     
-    phi = psi_vals - np.radians(pulsar.o)*np.ones(len(psi_vals))
-    r = pulsar.a*(1-pulsar.e**2)/(np.ones(len(phi))+pulsar.e*np.cos(phi))
+    phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
+    r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
     R_g = 2*G*pulsar.mass*M_0/c**2
-    amplification = np.zeros((len(pulsar.i), len(psi_vals)))
-    for j in range(len(pulsar.i)):
-        R = r*(1-(np.sin(np.radians(pulsar.i[j])))**2*(np.sin(psi_vals))**2)**0.5
-        a_pll = pulsar.a*np.sin(np.radians(pulsar.i[j]))*(1-pulsar.e**2)/(1+pulsar.e*np.sin(np.radians(pulsar.o)))
+    amplification = np.zeros((len(pulsar.angle), len(psi_vals)))
+    for j in range(len(pulsar.angle)):
+        R = r*(1-(np.sin(np.radians(pulsar.angle[j])))**2*(np.sin(psi_vals))**2)**0.5
+        a_pll = pulsar.axis*np.sin(np.radians(pulsar.angle[j]))*(1-pulsar.ecc**2)/(1+pulsar.ecc*np.sin(np.radians(pulsar.omega)))
         R_E = (2*R_g*a_pll)**0.5
         u = R/R_E
         if flag == 1:
@@ -134,16 +134,16 @@ def amp_plot(pulsar, flag=0):
     else:
         plt.title('Dominant image')
         plt.ylabel("$A_{+}$")
-    plt.legend(pulsar.i)
+    plt.legend(pulsar.angle)
     plt.show()
 
-
+demo=pulsar()
 # Driver Code
 # pulsar1 = pulsar(20)
-# pulsar1.axis=8.784*1e8
-# pulsar1.ecc=0.0878
-# pulsar1.omega=73.8
-# pulsar1.angle=[90.2, 90.4,91]
+# pulsar1.axis=3E8
+# pulsar1.ecc=0.5
+# pulsar1.omega=50
+# pulsar1.angle=[90.2, 90.4]
 
 # details(pulsar1)
 # amp_plot(pulsar1)

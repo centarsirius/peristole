@@ -43,8 +43,8 @@ class pulsar:
 def details(pulsar):
     #print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.period, pulsar.eta, pulsar.zeta, pulsar.alpha, pulsar.big_phi0)
     print("system parameters")
-    print("mass of lensing companion: ", pulsar.mass, " solar mass")
-    print("orbital semimajor axis: ", pulsar.axis, " meter")
+    print("mass of secondary pulsar: ", pulsar.mass, " solar mass")
+    print("orbital semimajor axis: ", pulsar.axis, " meters")
     print("eccentricity of system: ", pulsar.ecc)
     print("spin period of primary pulsar: ", pulsar.period, " seconds")
     print("longitude of periastron: ", pulsar.omega)

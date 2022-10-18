@@ -41,4 +41,4 @@ class pulsar:
         self.big_phi0 = big_phi0
 
 def details(pulsar):
-    print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.eta, pulsar.zeta)
+    print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.period, pulsar.eta, pulsar.zeta, pulsar.alpha, pulsar.big_phi0)

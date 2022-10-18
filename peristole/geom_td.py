@@ -9,7 +9,7 @@ M_0 = 1.989e30 # mass of the sun
 psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
 # the true anomaly measured from the ascending node of the pulsar
 
-def delay_geom(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.25, flag=0, dummy='default'):
+def delay_geom(pulsar, flag=0, dummy='default'):
     """
     Shows the geometric time delay 
     plotted as as a function of changing longitude. The user has 
@@ -26,13 +26,13 @@ def delay_geom(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.2
     """
 
 
-    phi = psi_vals - np.radians(omega)*np.ones(len(psi_vals))
-    r = a*(1-e**2)/(np.ones(len(phi))+e*np.cos(phi))
-    R_g = 2*G*M_c*M_0/c**2
-    geom_delay = np.zeros((len(i), len(psi_vals)))
-    for j in range(len(i)):
-        R_s = r*(1-(np.sin(np.radians(i[j])))**2*(np.sin(psi_vals))**2)**0.5
-        a_pll = a*np.sin(np.radians(i[j]))*(1-e**2)/(1+e*np.sin(np.radians(omega)))    
+    phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
+    r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
+    R_g = 2*G*pulsar.mass*M_0/c**2
+    geom_delay = np.zeros((len(pulsar.angle), len(psi_vals)))
+    for j in range(len(pulsar.angle)):
+        R_s = r*(1-(np.sin(np.radians(pulsar.angle[j])))**2*(np.sin(psi_vals))**2)**0.5
+        a_pll = pulsar.axis*np.sin(np.radians(pulsar.angle[j]))*(1-pulsar.ecc**2)/(1+e*np.sin(np.radians(pulsar.omega)))    
         R_E = (2*R_g*a_pll)**0.5
         if flag==1:
             R_pm = 0.5*(R_s-(R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5)
@@ -56,14 +56,14 @@ def delay_geom(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.2
         plt.title('Time delay due to geometric lensing (subdominant image)', fontsize=20, fontweight='bold')
     else:
         plt.title('Time delay due to geometric lensing (dominant image)', fontsize=20, fontweight='bold')
-    plt.legend(i)
+    plt.legend(pulsar.angle)
     plt.show()
     
 # example call of this function -     
 # delay_geom(8.784e8, 0.0878, np.radians(73.8), [90.14, 90.28, 90.56], 1.25*M_0)
 
 
-def delay_grav(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.25, flag=0, dummy='default'):
+def delay_grav(pulsar, flag=0, dummy='default'):
     """
     Shows the gravitational time delay 
     plotted as a function of changing longitude. The user has 
@@ -79,21 +79,21 @@ def delay_grav(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.2
     the user.
     """
     
-    phi = psi_vals - np.radians(omega)*np.ones(len(psi_vals))
-    r = a*(1-e**2)/(np.ones(len(phi))+e*np.cos(phi))
-    R_g = 2*G*M_c*M_0/c**2
-    grav_delay = np.zeros((len(i), len(psi_vals)))
-    for j in range(len(i)):
-        a_pll = a*np.sin(np.radians(i[j]))*(1-e**2)/(1+e*np.sin(np.radians(omega)))
-        R_s = r*(1-(np.sin(np.radians(i[j])))**2*(np.sin(psi_vals))**2)**0.5
+    phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
+    r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
+    R_g = 2*G*pulsar.mass*M_0/c**2
+    grav_delay = np.zeros((len(pulsar.angle), len(psi_vals)))
+    for j in range(len(pulsar.angle)):
+        a_pll = pulsar.axis*np.sin(np.radians(pulsar.angle[j]))*(1-pulsar.ecc**2)/(1+pulsar.ecc*np.sin(np.radians(pulsar.omega)))
+        R_s = r*(1-(np.sin(np.radians(pulsar.angle[j])))**2*(np.sin(psi_vals))**2)**0.5
         R_E = (2*R_g*a_pll)**0.5
-        r_pll = r*np.sin(np.radians(i[j]))*np.sin(psi_vals)
+        r_pll = r*np.sin(np.radians(pulsar.angle[j]))*np.sin(psi_vals)
         if flag==1:
             R_pm = 0.5*(R_s-(R_s**2+4*R_E**2)**0.5) #subdom
-            grav_delay[j,:] = (-R_g/c)*np.log(((r_pll**2+R_pm**2)**0.5-r_pll)/(a*(1-e**2)))*10**6
+            grav_delay[j,:] = (-R_g/c)*np.log(((r_pll**2+R_pm**2)**0.5-r_pll)/(pulsar.axis*(1-pulsar.ecc**2)))*10**6
         else:
             R_pm = 0.5*(R_s+(R_s**2+4*R_E**2)**0.5) #dom
-            grav_delay[j,:] = (-R_g/c)*np.log(((r_pll**2+R_pm**2)**0.5-r_pll)/(a*(1-e**2)))*10**6
+            grav_delay[j,:] = (-R_g/c)*np.log(((r_pll**2+R_pm**2)**0.5-r_pll)/(pulsar.axis*(1-pulsar.ecc**2)))*10**6
         if dummy == 'default':
             plt.plot(np.degrees(psi_vals), grav_delay[j,:])
     
@@ -108,13 +108,13 @@ def delay_grav(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.2
         plt.title('Time delay due to gravitational lensing (subdominant image)', fontsize=20, fontweight='bold')
     else:
         plt.title('Time delay due to gravitational lensing (dominant image)', fontsize=20, fontweight='bold')
-    plt.legend(i)
+    plt.legend(pulsar.angle)
     plt.show()
     
 # example call of this function - 
 # delay_grav(8.784e8, 0.0878, np.radians(73.8), [90.14, 90.28, 90.56], 1.25*M_0)
 
-def delay_combined(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c=1.25, flag=0, dummy='default'):
+def delay_combined(pulsar, flag=0, dummy='default'):
     """
     Shows the combined gravitational and geometric time delay 
     plotted as a function of changing longitude. 
@@ -129,9 +129,9 @@ def delay_combined(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c
     its default value 0 and shows the subdominant case if 
     set to 1.
     """
-    combined = delay_grav(a, e, np.radians(omega), i, M_c, flag, dummy='only value')+delay_geom(a, e, np.radians(omega), i, M_c, flag, dummy='only value')
+    combined = delay_grav(pulsar, flag, dummy='only value')+delay_geom(pulsar, flag, dummy='only value')
     
-    for j in range(len(i)):
+    for j in range(len(pulsar.angle)):
         plt.plot(np.degrees(psi_vals), combined[j,:])    
     
     plt.xlim(89,91)
@@ -142,7 +142,7 @@ def delay_combined(a=8.784*1e8, e=0.0878, omega=73.8, i=[90.14,90.28,90.56], M_c
         plt.title('Combined time delay due to geometric and gravitational lensing (subdominant image)', fontsize=20, fontweight='bold')
     else:
         plt.title('Combined time delay due to geometric and gravitational lensing (dominant image)', fontsize=20, fontweight='bold')
-    plt.legend(i)
+    plt.legend(pulsar.angle)
     plt.show()
 
 # example call of this function - 

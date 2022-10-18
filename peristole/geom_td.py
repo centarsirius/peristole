@@ -32,7 +32,7 @@ def delay_geom(pulsar, flag=0, dummy='default'):
     geom_delay = np.zeros((len(pulsar.angle), len(psi_vals)))
     for j in range(len(pulsar.angle)):
         R_s = r*(1-(np.sin(np.radians(pulsar.angle[j])))**2*(np.sin(psi_vals))**2)**0.5
-        a_pll = pulsar.axis*np.sin(np.radians(pulsar.angle[j]))*(1-pulsar.ecc**2)/(1+e*np.sin(np.radians(pulsar.omega)))    
+        a_pll = pulsar.axis*np.sin(np.radians(pulsar.angle[j]))*(1-pulsar.ecc**2)/(1+pulsar.ecc*np.sin(np.radians(pulsar.omega)))    
         R_E = (2*R_g*a_pll)**0.5
         if flag==1:
             R_pm = 0.5*(R_s-(R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5)

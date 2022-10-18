@@ -9,7 +9,7 @@ M_0 = 1.989e30 # mass of the sun
 psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
 #the true anomaly measured from the ascending node of the pulsar
 
-def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7E-3, i=[90.14,90.28,90.56], M_c=1.25, eta=45, zeta=50, alpha=4, big_phi0=115, flag=0, dummy='default'):
+def delay_lat(pulsar, flag=0, dummy='default'):
     """
     The user has to provide information/parameters about 
     the double pulsar system in the following order - semi 
@@ -26,23 +26,23 @@ def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7E-3, i=[90.14,90.28,90.
     zeta - angle of separation bw line of sight and spin axis
     alpha - angle between spin axis and magnetic axis
     """
-    phi = psi_vals - np.radians(omega)*np.ones(len(psi_vals))
-    r = a*(1-e**2)/(np.ones(len(phi))+e*np.cos(phi))
-    R_g = 2*G*M_c*M_0/c**2
-    lat_delay = np.zeros((len(i), len(psi_vals)))
-    chi0=(np.sin(np.radians(alpha))*np.sin(np.radians(big_phi0)))/((np.cos(np.radians(alpha))*np.sin(np.radians(zeta)))-(np.cos(np.radians(big_phi0))*np.sin(np.radians(alpha))*np.cos(np.radians(zeta))))
+    phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
+    r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
+    R_g = 2*G*pulsar.mass*M_0/c**2
+    lat_delay = np.zeros((len(pulsar.angle), len(psi_vals)))
+    chi0=(np.sin(np.radians(pulsar.alpha))*np.sin(np.radians(pulsar.big_phi0)))/((np.cos(np.radians(pulsar.alpha))*np.sin(np.radians(pulsar.zeta)))-(np.cos(np.radians(pulsar.big_phi0))*np.sin(np.radians(pulsar.alpha))*np.cos(np.radians(pulsar.zeta))))
     
-    for j in range(len(i)):
-        R_s = r*(np.ones(len(psi_vals))-(np.sin(np.radians(i[j])))**2*(np.sin(psi_vals))**2)**0.5
-        a_pll = a*np.sin(np.radians(i[j]))*(1-e**2)/(1+e*np.sin(np.radians(omega))) 
+    for j in range(len(pulsar.angle)):
+        R_s = r*(np.ones(len(psi_vals))-(np.sin(np.radians(pulsar.angle[j])))**2*(np.sin(psi_vals))**2)**0.5
+        a_pll = pulsar.axis*np.sin(np.radians(pulsar.angle[j]))*(1-pulsar.ecc**2)/(1+pulsar.ecc*np.sin(np.radians(pulsar.omega))) 
         R_E = (2*R_g*a_pll)**0.5
-        omega_p=2*np.pi/time
+        omega_p=2*np.pi/pulsar.period
         if flag==1:
            delta_R_pm = 0.5*(-(R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5-R_s)
-           lat_delay[j,:] = (delta_R_pm/R_s)*(r/a_pll)*(np.cos(np.radians(eta))*np.cos(psi_vals)+np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(psi_vals))/(omega_p*np.sin(np.radians(zeta))*chi0)
+           lat_delay[j,:] = (delta_R_pm/R_s)*(r/a_pll)*(np.cos(np.radians(pulsar.eta))*np.cos(psi_vals)+np.cos(np.radians(pulsar.angle[j]))*np.sin(np.radians(pulsar.eta))*np.sin(psi_vals))/(omega_p*np.sin(np.radians(pulsar.zeta))*chi0)
         else:
            delta_R_pm = 0.5*((R_s**2+4*(R_E**2)*np.ones(len(R_s)))**0.5-R_s) 
-           lat_delay[j,:] = (delta_R_pm/R_s)*(r/a_pll)*(np.cos(np.radians(eta))*np.cos(psi_vals)+np.cos(np.radians(i[j]))*np.sin(np.radians(eta))*np.sin(psi_vals))/(omega_p*np.sin(np.radians(zeta))*chi0)
+           lat_delay[j,:] = (delta_R_pm/R_s)*(r/a_pll)*(np.cos(np.radians(pulsar.eta))*np.cos(psi_vals)+np.cos(np.radians(pulsar.angle[j]))*np.sin(np.radians(pulsar.eta))*np.sin(psi_vals))/(omega_p*np.sin(np.radians(pulsar.zeta))*chi0)
         if dummy == 'default':
             plt.plot(np.degrees(psi_vals), lat_delay[j,:]*1e6)
     
@@ -58,7 +58,7 @@ def delay_lat(a=8.784E8, e=0.0878, omega=73.8, time =22.7E-3, i=[90.14,90.28,90.
         plt.title('Time delay due to latitudinal lensing (subdominant image)', fontsize=20, fontweight='bold')
     else:
         plt.title('Time delay due to latitudinal lensing (dominant image)', fontsize=20, fontweight='bold')
-    plt.legend(i)
+    plt.legend(pulsar.angle)
     plt.show()
     
 # example call of this function -     

@@ -1,3 +1,6 @@
+import numpy as np
+import matplotlib.pyplot as plt 
+
 # defining the constants
  
 G = 6.674*1e-11 # in SI units 

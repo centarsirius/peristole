@@ -1,3 +1,5 @@
+from contextlib import suppress
+
 class pulsar:
     
     def __init__(self):

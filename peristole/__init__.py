@@ -8,4 +8,6 @@ from .grav_td import *
 from .rot_td import *
 from .lat_td import  *
 from .pulsar_class import *
-
+import numpy as np
+import matplotlib.pyplot as plt 
+from contextlib import suppress

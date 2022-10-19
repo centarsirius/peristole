@@ -1,6 +1,3 @@
-from cgi import print_directory
-from contextlib import suppress
-
 class pulsar:
     
     def __init__(self):

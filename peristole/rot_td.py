@@ -61,7 +61,7 @@ def delay_rot(pulsar, flag=0, dummy='default'):
     plt.show()
     
 # example call of this function -     
-# delay_rot(8.784E8, 0.0878, 73.8, 22.7, [90.14, 90.28, 90.56], 1.25, 45, 50, 4, 115)
+# delay_rot(8.784E8, 0.0878, 73.8, 22.7, [90.14, 90.28, 90.56], 1.25, 45, 50)
 
 
 

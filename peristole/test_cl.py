@@ -98,7 +98,8 @@ def amp_plot(pulsar, flag=0):
 
 
 # Driver Code
-# pulsar1 = peri.pulsar(20)
+# pulsar1 = peri.pulsar()
+# pulsar1.mass = 1.25
 # pulsar1.axis=3E8
 # pulsar1.ecc=0.5
 # pulsar1.omega=50

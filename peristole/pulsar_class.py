@@ -1,57 +1,69 @@
+from cgi import print_directory
+from contextlib import suppress
+
 class pulsar:
-    # axis=8.784E8
-    # ecc=0.0878
-    # omega=73.8
-    # period =22.7E-3 #changed time to period
-    # angle=[90.14,90.28,90.56]
-    # mass=1.25
-    # eta=45
-    # zeta=50
-    # alpha=4
-    # big_phi0=115
     
-    def __init__(self, mass= None):
-        self.mass=mass if mass is not None else 1.25
+    def __init__(self):
+        pass
+
+    def default(self, name= 'PSR J0737-3039', mass= 1.25, axis=8.784E8, ecc=0.0878, omega=73.8, period =22.7E-3, angle=[90.14,90.28,90.56], eta=45, zeta=50, alpha=4, big_phi0=115):
+        self.name=name
+        self.mass = mass
+        self.axis = axis 
+        self.ecc = ecc 
+        self.omega = omega
+        self.angle = angle 
+        self.period = period 
+        self.eta = eta 
+        self.zeta = zeta 
+        self.alpha = alpha 
+        self.big_phi0 = big_phi0 
     
-    def a(self, axis = None):
-        self.axis = axis if axis is not None else 8.784E8
+    def a(self, axis):
+        self.axis = axis 
 
-    def e(self, ecc = None):
-        self.ecc = ecc if ecc is not None else 0.0878
+    def m(self, mass):
+        self.mass = mass
 
-    def o(self, omega = None):
-        self.omega = omega if omega is not None else 73.8
+    def e(self, ecc):
+        self.ecc = ecc 
 
-    def i(self, angle = None):
-        self.angle = angle if angle is not None else [90.14,90.28,90.56]
+    def o(self, omega):
+        self.omega = omega
 
-    def t(self, period = None): #change time to period everywhere
-        self.period = period if period is not None else 22.7E-3
+    def i(self, angle):
+        self.angle = angle 
 
-    def et(self, eta = None):
-        self.eta = eta if eta is not None else 45
+    def t(self, period): #change time to period everywhere
+        self.period = period 
 
-    def zet(self, zeta = None):
-        self.zeta = zeta if zeta is not None else 50
+    def et(self, eta):
+        self.eta = eta 
+
+    def zet(self, zeta):
+        self.zeta = zeta 
     
-    def alph(self, alpha = None):
-        self.alpha = alpha if alpha is not None else 4
+    def alph(self, alpha):
+        self.alpha = alpha 
 
-    def b_phi(self, big_phi0 = None): #change big_phi0 to something else for user friendliness
-        self.big_phi0 = big_phi0 if big_phi0 is not None else 115
+    def b_phi(self, big_phi0): #change big_phi0 to something else for user friendliness
+        self.big_phi0 = big_phi0 
 
-def details(pulsar):
-    #print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.period, pulsar.eta, pulsar.zeta, pulsar.alpha, pulsar.big_phi0)
-    print("system parameters")
-    print("mass of secondary pulsar: ", pulsar.mass, " solar mass")
-    print("orbital semimajor axis: ", pulsar.axis, " meters")
-    print("eccentricity of system: ", pulsar.ecc)
-    print("spin period of primary pulsar: ", pulsar.period, " seconds")
-    print("longitude of periastron: ", pulsar.omega)
-    print("orbital inclination angle(s): ", pulsar.angle)
-    print("angle between spin axis and magnetic axis: ", pulsar.alpha)
-    print("to be filled: ", pulsar.eta)
-    print("opening angle: ", pulsar.zeta)
-    print("to be filled: ", pulsar.big_phi0)
+    def details(self):
+        #print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.period, pulsar.eta, pulsar.zeta, pulsar.alpha, pulsar.big_phi0)
+        with suppress(AttributeError):
+            print("system parameters ")
+            print("mass of secondary pulsar: ", self.mass, " solar mass")
+            print("orbital semimajor axis: ", self.axis, " meters")
+            print("eccentricity of system: ", self.ecc)
+            print("longitude of periastron: ", self.omega)
+            print("orbital inclination angle(s): ", self.angle)
+            print("spin period of primary self: ", self.period, " seconds")
+            print("angle between spin axis and magnetic axis: ", self.alpha)
+            print("to be filled: ", self.eta)
+            print("opening angle: ", self.zeta)
+            print("to be filled: ", self.big_phi0)
 
-
+demo=pulsar()
+demo.default(demo)
+#peri.demo.details()

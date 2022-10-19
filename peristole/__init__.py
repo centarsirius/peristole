@@ -4,9 +4,8 @@ print("PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL 
 
 from .amp import *
 from .geom_td import *
-from .geom_td import *
-from .geom_td import *
+from .grav_td import *
 from .rot_td import *
 from .lat_td import  *
-#from .test_cl import *
 from .pulsar_class import *
+

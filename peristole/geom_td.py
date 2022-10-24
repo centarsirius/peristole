@@ -3,11 +3,10 @@ import matplotlib.pyplot as plt
 
 # defining the constants
  
-G = 6.674*1e-11 # in SI units 
-c = 3e8 # in SI units
-M_0 = 1.989e30 # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
-# the true anomaly measured from the ascending node of the pulsar
+G = 6.674*1e-11     # in SI units 
+c = 3e8             # in SI units
+M_0 = 1.989e30      # mass of the sun in SI units
+psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)   # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_geom(pulsar, flag=0, dummy='default'):
     """

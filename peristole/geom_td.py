@@ -63,18 +63,20 @@ def delay_geom(pulsar, flag=0, dummy='default'):
 
 def delay_grav(pulsar, flag=0, dummy='default'):
     """
-    Shows the gravitational time delay 
-    plotted as a function of changing longitude. The user has 
-    to provide information/parameters about the double pulsar 
-    system in the following order - semi major axis, eccentricity, 
-    the longitude of periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1. The variable named dummy is not relevant for 
-    the user.
+    Provides gravitational time delay for the dominant and subdominant images plotted as a function of 
+    longitude.
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The gravitational time delay plot
+       
+    Example call of the function:
+       demo = pulsar_class()
+       demo.default(demo)
+       delay_grav(demo)
     """
     
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
@@ -112,18 +114,20 @@ def delay_grav(pulsar, flag=0, dummy='default'):
 
 def delay_combined(pulsar, flag=0, dummy='default'):
     """
-    Shows the combined gravitational and geometric time delay 
-    plotted as a function of changing longitude. 
-    The user has to provide information/parameters about 
-    the double pulsar system in the following order - semi 
-    major axis, eccentricity, the longitude of 
-    periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1.
+    Shows the combined gravitational and geometric time delay plotted as a function of changing longitude. 
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The combined time delay plot
+       
+    Example call of the function:
+       demo = pulsar_class()
+       demo.default(demo)
+       delay_combined(demo)
+    
     """
     combined = delay_grav(pulsar, flag, dummy='only value')+delay_geom(pulsar, flag, dummy='only value')
     

@@ -14,18 +14,16 @@ def delay_geom(pulsar, flag=0, dummy='default'):
     longitude.
     
     Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
        
-    The user has 
-    to provide information/parameters about the double pulsar 
-    system in the following order - semi major axis, eccentricity, 
-    the longitude of periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1. The variable named dummy is not relevant for 
-    the user.
+    Returns:
+       The geometric time delay plot
+       
+    Example call of the function:
+       demo = pulsar_class()
+       demo.default(demo)
+       delay_geom(demo)
     """
 
 
@@ -62,9 +60,6 @@ def delay_geom(pulsar, flag=0, dummy='default'):
     plt.legend(pulsar.angle)
     plt.show()
     
-# example call of this function -     
-# delay_geom(8.784e8, 0.0878, np.radians(73.8), [90.14, 90.28, 90.56], 1.25*M_0)
-
 
 def delay_grav(pulsar, flag=0, dummy='default'):
     """
@@ -114,8 +109,6 @@ def delay_grav(pulsar, flag=0, dummy='default'):
     plt.legend(pulsar.angle)
     plt.show()
     
-# example call of this function - 
-# delay_grav(8.784e8, 0.0878, np.radians(73.8), [90.14, 90.28, 90.56], 1.25*M_0)
 
 def delay_combined(pulsar, flag=0, dummy='default'):
     """
@@ -147,11 +140,3 @@ def delay_combined(pulsar, flag=0, dummy='default'):
         plt.title('Combined time delay due to geometric and gravitational lensing (dominant image)', fontsize=20, fontweight='bold')
     plt.legend(pulsar.angle)
     plt.show()
-
-# example call of this function - 
-# delay_combined(8.784e8, 0.0878, 73.8, [90.14, 90.28, 90.56], 1.25*M_0)
-
-# for demos, run - 
-# delay_geom()
-# delay_grav()
-# delay_combined()

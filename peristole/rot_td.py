@@ -3,28 +3,16 @@ import matplotlib.pyplot as plt
 
 # defining the constants
 
-G = 6.674*1e-11 # in SI units 
-c = 3e8 # in SI units
-M_0 = 1.989e30 # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
-#the true anomaly measured from the ascending node of the pulsar
+G = 6.674*1e-11     # in SI units 
+c = 3e8             # in SI units
+M_0 = 1.989e30      # mass of the sun 
+psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)   # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_rot(pulsar, flag=0, dummy='default'):
     """
-    The user has to provide information/parameters about 
-    the double pulsar system in the following order - semi 
-    major axis, eccentricity, the longitude of 
-    periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar in solar mass, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1. The variable named dummy is not relevant for 
-    the user.
     eta - angle bw orbit and spin axis projection
     zeta - angle of separation bw line of sight and spin axis
-    alpha=np.radians(4) #angle between spin axis and magnetic axis
+    alpha - angle between spin axis and magnetic axis
     """
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
     r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))

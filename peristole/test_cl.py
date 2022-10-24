@@ -69,7 +69,7 @@ def amp_plot(pulsar, flag=0):
     Example call of the function:
        demo = pulsar_class()
        demo.default(demo)
-       delay_lat(demo)
+       amp_plot(demo)
     """
     
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))

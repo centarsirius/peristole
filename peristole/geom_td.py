@@ -10,8 +10,12 @@ psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)   # psi is the true
 
 def delay_geom(pulsar, flag=0, dummy='default'):
     """
-    Shows the geometric time delay 
-    plotted as as a function of changing longitude. The user has 
+    Provides geometric time delay for the dominant and subdominant images plotted as a function of 
+    longitude.
+    
+    Args: 
+       
+    The user has 
     to provide information/parameters about the double pulsar 
     system in the following order - semi major axis, eccentricity, 
     the longitude of periastron in radians, a list of any length

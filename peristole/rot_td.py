@@ -10,10 +10,22 @@ psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)   # psi is the true
 
 def delay_rot(pulsar, flag=0, dummy='default'):
     """
-    eta - angle bw orbit and spin axis projection
-    zeta - angle of separation bw line of sight and spin axis
-    alpha - angle between spin axis and magnetic axis
+    Provides rotational lensing delay for the dominant and subdominant images plotted as a function of 
+    longitude.
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The latitudinal lensing delay plot
+       
+    Example call of the function:
+       demo = pulsar_class()
+       demo.default(demo)
+       delay_rot(demo)
     """
+    
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
     r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
     R_g = 2*G*pulsar.mass*M_0/c**2
@@ -47,10 +59,6 @@ def delay_rot(pulsar, flag=0, dummy='default'):
         plt.title('Time delay due to rotational lensing (dominant image)', fontsize=20, fontweight='bold')
     plt.legend(pulsar.angle)
     plt.show()
-    
-# example call of this function -     
-# delay_rot(8.784E8, 0.0878, 73.8, 22.7, [90.14, 90.28, 90.56], 1.25, 45, 50)
-
 
 
 #dtr_s=-(drn/(a_bar*omega_p))*((np.sin(eta)*np.cos(phi)-(np.cos(i)*np.cos(eta)*np.sin(phi)))/(np.sin(zeta)*np.sqrt(1-np.sin(i)**2*np.sin(phi)**2))) #eq 10

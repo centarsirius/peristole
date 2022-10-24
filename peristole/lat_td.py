@@ -3,28 +3,27 @@ import matplotlib.pyplot as plt
 
 # defining the constants
 
-G = 6.674*1e-11 # in SI units 
-c = 3e8 # in SI units
-M_0 = 1.989e30 # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
-#the true anomaly measured from the ascending node of the pulsar
+G = 6.674*1e-11     # in SI units 
+c = 3e8             # in SI units
+M_0 = 1.989e30      # mass of the sun 
+psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)   # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_lat(pulsar, flag=0, dummy='default'):
     """
-    The user has to provide information/parameters about 
-    the double pulsar system in the following order - semi 
-    major axis, eccentricity, the longitude of 
-    periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar in solar mass, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1. The variable named dummy is not relevant for 
-    the user.
-    eta - angle bw orbit and spin axis projection
-    zeta - angle of separation bw line of sight and spin axis
-    alpha - angle between spin axis and magnetic axis
+    Provides latitudinal lensing delay for the dominant and subdominant images plotted as a function of 
+    longitude.
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The latitudinal lensing delay plot
+       
+    Example call of the function:
+       demo = pulsar_class()
+       demo.default(demo)
+       delay_lat(demo)
     """
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
     r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
@@ -61,5 +60,3 @@ def delay_lat(pulsar, flag=0, dummy='default'):
     plt.legend(pulsar.angle)
     plt.show()
     
-# example call of this function -     
-# delay_lat(8.784e8, 0.0878, 73.8, 22.7, [90.14, 90.28, 90.56], 1.25, 45, 50, 4, 115)

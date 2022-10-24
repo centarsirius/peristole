@@ -6,21 +6,24 @@ import matplotlib.pyplot as plt
 G = 6.674*1e-11 # in SI units 
 c = 3*1e8 # in SI units
 M_0 = 1.989e30 # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)
-# the true anomaly measured from the ascending node of the pulsar
+psi_vals = np.linspace(np.radians(89), np.radians(91), 1001) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def amp_plot(pulsar, flag=0): 
     """
-    Provides amplification factor for the images plotted as a function of 
+    Provides amplification factor for the dominant and subdominant images plotted as a function of 
     longitude.
-    The user has to provide information/parameters about 
-    the double pulsar system in the following order - semi 
-    major axis, eccentricity, the longitude of 
-    periastron in radians, the inclination angle of the orbital plane
-    in degrees, the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1  
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The amplification factor plot
+       
+    Example call of the function:
+       demo = pulsar_class()
+       demo.default(demo)
+       amp_plot(demo, 1)
     """
     
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
@@ -49,13 +52,3 @@ def amp_plot(pulsar, flag=0):
         plt.ylabel("$A_{+}$")
     plt.legend(pulsar.angle)
     plt.show()
-    
-
-# example call for this function
-# amp_plot(8.784*1e8, 0.0878, np.radians(73.8), [90.14,90.28,90.56], 1.25*M_0,1)
-
-# for demo, run
-# amp_plot()
-
-
-

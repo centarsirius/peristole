@@ -1,7 +1,30 @@
 from contextlib import suppress
 
 class pulsar:
-    
+    """
+    Initiates a pulsar class with the given name allowing you to specify the physical 
+    parameters of the double pulsar system. 
+       
+    Args: 
+        name: Name of the system
+        mass: Mass of the pulsar playing the role of the lensing companion (labelled B), with A being the pulsar whose delays are to be plotted (in units of solar mass)
+        axis: Semi-major axis of the orbit of the system (in metres)
+        ecc: Eccentricity of the system 
+        omega: Longitude of periastron (in degrees)
+        period: Spin period of pulsar A (in seconds)
+        angle: Orbital inclination angle (in degrees, can be a list)
+        eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane
+        zeta: Angle between the pulsar spin axis and the line of sight vector 
+        alpha: Angle between the pulsar spin axis and magnetic axis 
+        big_phi0: 
+
+    Example call:
+        example = pulsar()
+        example.mass = 5
+        example.ecc = 0.7
+        ...
+        example.eta = 30
+    """
     def __init__(self):
         pass
 
@@ -51,7 +74,7 @@ class pulsar:
     def i(self, angle):
         self.angle = angle 
 
-    def t(self, period): #change time to period everywhere
+    def t(self, period):
         self.period = period 
 
     def et(self, eta):
@@ -67,7 +90,6 @@ class pulsar:
         self.big_phi0 = big_phi0 
 
     def details(self):
-        #print(pulsar.mass, pulsar.axis, pulsar.ecc, pulsar.omega, pulsar.angle, pulsar.period, pulsar.eta, pulsar.zeta, pulsar.alpha, pulsar.big_phi0)
         with suppress(AttributeError):
             print("system parameters ")
             print("mass of secondary pulsar: ", self.mass, " solar mass")

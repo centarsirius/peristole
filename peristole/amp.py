@@ -6,12 +6,12 @@ import matplotlib.pyplot as plt
 G = 6.674*1e-11 # in SI units 
 c = 3*1e8 # in SI units
 M_0 = 1.989e30 # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001) # psi is the true anomaly measured from the ascending node of the pulsar
+psi_vals = np.linspace(np.radians(0), np.radians(360), 1e6) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def amp_plot(pulsar, flag=0): 
     """
     Provides amplification factor for the dominant and subdominant images plotted as a function of 
-    longitude.
+    longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     
     Args: 
        pulsar: An object of the pulsar class
@@ -21,9 +21,9 @@ def amp_plot(pulsar, flag=0):
        The amplification factor plot
        
     Example call of the function:
-       demo = pulsar_class()
-       demo.default(demo)
-       amp_plot(demo, 1)
+       example = pulsar()
+       ...
+       amp_plot(example, 1)
     """
     
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
@@ -52,3 +52,4 @@ def amp_plot(pulsar, flag=0):
         plt.ylabel("$A_{+}$")
     plt.legend(pulsar.angle)
     plt.show()
+    

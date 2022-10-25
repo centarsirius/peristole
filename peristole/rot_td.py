@@ -6,24 +6,24 @@ import matplotlib.pyplot as plt
 G = 6.674*1e-11     # in SI units 
 c = 3e8             # in SI units
 M_0 = 1.989e30      # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)   # psi is the true anomaly measured from the ascending node of the pulsar
+psi_vals = np.linspace(np.radians(0), np.radians(360), 1e6) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_rot(pulsar, flag=0, dummy='default'):
     """
     Provides rotational lensing delay for the dominant and subdominant images plotted as a function of 
-    longitude.
+    longitude. Needs mass, axis, ecc, angle, omega, period, eta, zeta to be already declared.
     
     Args: 
        pulsar: An object of the pulsar class
        flag: An optional argument which if set to 1 gives the plot for the subdominant case
        
     Returns:
-       The latitudinal lensing delay plot
+       The rotational lensing delay plot
        
     Example call of the function:
-       demo = pulsar_class()
-       demo.default(demo)
-       delay_rot(demo)
+       example = pulsar()
+       ...
+       delay_rot(example)
     """
     
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
@@ -59,7 +59,4 @@ def delay_rot(pulsar, flag=0, dummy='default'):
         plt.title('Time delay due to rotational lensing (dominant image)', fontsize=20, fontweight='bold')
     plt.legend(pulsar.angle)
     plt.show()
-
-
-#dtr_s=-(drn/(a_bar*omega_p))*((np.sin(eta)*np.cos(phi)-(np.cos(i)*np.cos(eta)*np.sin(phi)))/(np.sin(zeta)*np.sqrt(1-np.sin(i)**2*np.sin(phi)**2))) #eq 10
 

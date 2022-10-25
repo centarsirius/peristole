@@ -3,26 +3,27 @@ import matplotlib.pyplot as plt
 
 # defining the constants
  
-G = 6.674*1e-11 # in SI units 
-c = 3e8 # in SI units
-M_0 = 1.989e30 # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001)  
-# the true anomaly measured from the ascending node of the pulsar
+G = 6.674*1e-11     # in SI units 
+c = 3e8             # in SI units
+M_0 = 1.989e30      # mass of the sun in SI units
+psi_vals = np.linspace(np.radians(0), np.radians(360), 1e6) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_geom(pulsar, flag=0, dummy='default'):
     """
-    Shows the geometric time delay 
-    plotted as as a function of changing longitude. The user has 
-    to provide information/parameters about the double pulsar 
-    system in the following order - semi major axis, eccentricity, 
-    the longitude of periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1. The variable named dummy is not relevant for 
-    the user.
+    Provides geometric time delay for the dominant and subdominant images plotted as a function of 
+    longitude. Needs mass, axis, ecc, angle, omega to be already declared.
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The geometric time delay plot
+       
+    Example call of the function:
+       example = pulsar()
+       ...
+       delay_geom(example)
     """
 
 
@@ -59,24 +60,23 @@ def delay_geom(pulsar, flag=0, dummy='default'):
     plt.legend(pulsar.angle)
     plt.show()
     
-# example call of this function -     
-# delay_geom(8.784e8, 0.0878, np.radians(73.8), [90.14, 90.28, 90.56], 1.25*M_0)
-
 
 def delay_grav(pulsar, flag=0, dummy='default'):
     """
-    Shows the gravitational time delay 
-    plotted as a function of changing longitude. The user has 
-    to provide information/parameters about the double pulsar 
-    system in the following order - semi major axis, eccentricity, 
-    the longitude of periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1. The variable named dummy is not relevant for 
-    the user.
+    Provides gravitational time delay for the dominant and subdominant images plotted as a function of 
+    longitude. Needs mass, axis, ecc, angle, omega to be already declared.
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The gravitational time delay plot
+       
+    Example call of the function:
+       example = peristole.pulsar()
+       ...
+       delay_grav(example)
     """
     
     phi = psi_vals - np.radians(pulsar.omega)*np.ones(len(psi_vals))
@@ -111,23 +111,24 @@ def delay_grav(pulsar, flag=0, dummy='default'):
     plt.legend(pulsar.angle)
     plt.show()
     
-# example call of this function - 
-# delay_grav(8.784e8, 0.0878, np.radians(73.8), [90.14, 90.28, 90.56], 1.25*M_0)
 
 def delay_combined(pulsar, flag=0, dummy='default'):
     """
-    Shows the combined gravitational and geometric time delay 
-    plotted as a function of changing longitude. 
-    The user has to provide information/parameters about 
-    the double pulsar system in the following order - semi 
-    major axis, eccentricity, the longitude of 
-    periastron in radians, a list of any length
-    consisting of the different values of inclination angle
-    of the orbital plane in degrees (i), 
-    the mass of the companion pulsar, and a variable 'flag' 
-    which shows the plot for the dominant image if left at 
-    its default value 0 and shows the subdominant case if 
-    set to 1.
+    Shows the combined gravitational and geometric time delay plotted as a function of 
+    changing longitude. Needs mass, axis, ecc, angle, omega to be already declared.
+    
+    Args: 
+       pulsar: An object of the pulsar class
+       flag: An optional argument which if set to 1 gives the plot for the subdominant case
+       
+    Returns:
+       The combined time delay plot
+       
+    Example call of the function:
+       example = peristole.pulsar()
+       ...
+       delay_combined(example)
+    
     """
     combined = delay_grav(pulsar, flag, dummy='only value')+delay_geom(pulsar, flag, dummy='only value')
     
@@ -144,11 +145,3 @@ def delay_combined(pulsar, flag=0, dummy='default'):
         plt.title('Combined time delay due to geometric and gravitational lensing (dominant image)', fontsize=20, fontweight='bold')
     plt.legend(pulsar.angle)
     plt.show()
-
-# example call of this function - 
-# delay_combined(8.784e8, 0.0878, 73.8, [90.14, 90.28, 90.56], 1.25*M_0)
-
-# for demos, run - 
-# delay_geom()
-# delay_grav()
-# delay_combined()

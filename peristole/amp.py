@@ -49,11 +49,11 @@ def amp_plot(pulsar, flag=0):
     plt.tick_params(axis='both', direction='in', which='major', length=10)
     if flag == 1:
         plt.yscale('log')
-        plt.title('Amplification factor for the sub-dominant image')
-        plt.ylabel("$A_{-}$")
+        plt.title('Amplification factor for the sub-dominant image', fontsize=20, fontweight='bold')
+        plt.ylabel("$A_{-}$", fontsize=15)
     else:
-        plt.title('Amplification factor for the dominant image')
-        plt.ylabel("$A_{+}$")
+        plt.title('Amplification factor for the dominant image', fontsize=20, fontweight='bold')
+        plt.ylabel("$A_{+}$", fontsize=15)
     plt.legend(pulsar.angle)
     plt.show()
     

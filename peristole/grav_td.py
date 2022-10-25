@@ -6,20 +6,23 @@ import matplotlib.pyplot as plt
 G = 6.674*1e-11     # in SI units 
 c = 3e8             # in SI units
 M_0 = 1.989e30      # mass of the sun in SI units
-psi_vals = np.linspace(np.radians(0), np.radians(360), 1e6) # psi is the true anomaly measured from the ascending node of the pulsar
+psi_vals = np.linspace(np.radians(89), np.radians(91), 1001) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_geom(pulsar, flag=0, dummy='default'):
     """
     Provides geometric time delay for the dominant and subdominant images plotted as a function of 
     longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     
+
     Args: 
        pulsar: An object of the pulsar class
        flag: An optional argument which if set to 1 gives the plot for the subdominant case
-       
+
+
     Returns:
        The geometric time delay plot
-       
+
+
     Example call of the function:
        example = pulsar()
        ...
@@ -66,13 +69,16 @@ def delay_grav(pulsar, flag=0, dummy='default'):
     Provides gravitational time delay for the dominant and subdominant images plotted as a function of 
     longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     
+
     Args: 
        pulsar: An object of the pulsar class
        flag: An optional argument which if set to 1 gives the plot for the subdominant case
-       
+
+
     Returns:
        The gravitational time delay plot
-       
+
+
     Example call of the function:
        example = peristole.pulsar()
        ...
@@ -117,12 +123,15 @@ def delay_combined(pulsar, flag=0, dummy='default'):
     Shows the combined gravitational and geometric time delay plotted as a function of 
     changing longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     
+
     Args: 
        pulsar: An object of the pulsar class
        flag: An optional argument which if set to 1 gives the plot for the subdominant case
-       
+
+
     Returns:
        The combined time delay plot
+    
        
     Example call of the function:
        example = peristole.pulsar()

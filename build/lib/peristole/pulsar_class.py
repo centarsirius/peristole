@@ -2,10 +2,11 @@ from contextlib import suppress
 
 class pulsar:
     """
-    Initiates a pulsar object with the given name allowing you to specify the physical parameters of the double pulsar system. 
+    Initiates a pulsar object with the given name allowing you to specify the physical 
+    parameters of the double pulsar system. 
        
-
     Args: 
+        name: Name of the system
         mass: Mass of the pulsar playing the role of the lensing companion (labelled B), with A being the pulsar whose delays are to be plotted (in units of solar mass)
         axis: Semi-major axis of the orbit of the system (in metres)
         ecc: Eccentricity of the system 
@@ -16,7 +17,6 @@ class pulsar:
         zeta: Angle between the pulsar spin axis and the line of sight vector 
         alpha: Angle between the pulsar spin axis and magnetic axis 
         big_phi0: 
-
 
     Example call:
         example = pulsar()

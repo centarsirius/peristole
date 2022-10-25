@@ -6,22 +6,19 @@ import matplotlib.pyplot as plt
 G = 6.674*1e-11     # in SI units 
 c = 3e8             # in SI units
 M_0 = 1.989e30      # mass of the sun 
-psi_vals = np.linspace(np.radians(89), np.radians(91), 1001) # psi is the true anomaly measured from the ascending node of the pulsar
+psi_vals = np.linspace(np.radians(0), np.radians(360), 1e6) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_lat(pulsar, flag=0, dummy='default'):
     """
     Provides latitudinal lensing delay for the dominant and subdominant images plotted as a function of 
     longitude. Needs mass, axis, ecc, angle, omega, period, eta, zeta, alpha, big_phi0 to be already declared.
     
-
     Args: 
        pulsar: An object of the pulsar class
        flag: An optional argument which if set to 1 gives the plot for the subdominant case
-
-
+       
     Returns:
        The latitudinal lensing delay plot
-    
        
     Example call of the function:
        example = pulsar()

@@ -2,7 +2,7 @@ from contextlib import suppress
 
 class pulsar:
     """
-    Initiates a pulsar class with the given name allowing you to specify the physical 
+    Initiates a pulsar object with the given name allowing you to specify the physical 
     parameters of the double pulsar system. 
        
     Args: 

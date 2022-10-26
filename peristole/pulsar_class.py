@@ -12,9 +12,9 @@ class pulsar:
         omega: Longitude of periastron (in degrees)
         period: Spin period of pulsar A (in seconds)
         angle: Orbital inclination angle (in degrees, can be a list)
-        eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane
-        zeta: Angle between the pulsar spin axis and the line of sight vector 
-        alpha: Angle between the pulsar spin axis and magnetic axis 
+        eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane (in degrees)
+        zeta: Angle between the pulsar spin axis and the line of sight vector (in degrees)
+        alpha: Angle between the pulsar spin axis and magnetic axis (in degrees)
         big_phi0: 
 
 
@@ -40,9 +40,9 @@ class pulsar:
            omega: Longitude of periastron (in degrees)
            period: Spin period of pulsar A (in seconds)
            angle: Orbital inclination angle (in degrees, can be a list)
-           eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane
-           zeta: Angle between the pulsar spin axis and the line of sight vector 
-           alpha: Angle between the pulsar spin axis and magnetic axis 
+           eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane (in degrees)
+           zeta: Angle between the pulsar spin axis and the line of sight vector (in degrees)
+           alpha: Angle between the pulsar spin axis and magnetic axis (in degrees)
            big_phi0: 
         """
         

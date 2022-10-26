@@ -9,7 +9,8 @@ M_0 = 1.989e30      # mass of the sun
 psi_vals = np.linspace(np.radians(89), np.radians(91), 1001) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_lat(pulsar, flag=0, dummy='default'):
-    """
+    """Latitudinal delay
+    
     Provides latitudinal lensing delay for the dominant and subdominant images plotted as a function of 
     longitude. Needs mass, axis, ecc, angle, omega, period, eta, zeta, alpha, big_phi0 to be already declared.
     

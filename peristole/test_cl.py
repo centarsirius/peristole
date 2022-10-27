@@ -33,6 +33,8 @@ class pulsar:
         self.omega = omega
 
     def i(self, angle):
+        if not isinstance(angle, (list, set, tuple)):
+            angle = [angle]
         self.angle = angle
 
     def t(self, period):

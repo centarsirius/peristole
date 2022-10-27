@@ -12,10 +12,10 @@ class pulsar:
         omega: Longitude of periastron (in degrees)
         period: Spin period of pulsar A (in seconds)
         angle: Orbital inclination angle (in degrees, can be a list)
-        eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane (in degrees)
-        zeta: Angle between the pulsar spin axis and the line of sight vector (in degrees)
+        eta: Angle between the ascending node of the orbit and the projection of the pulsar spin axis on the sky plane (in degrees)
+        zeta: Angle between the pulsar spin axis and the line of sight (in degrees)
         alpha: Angle between the pulsar spin axis and magnetic axis (in degrees)
-        l: 
+        phi_0: longitudinal projection of the magnetic axis to the plane containing the rotational axis (in degrees)
 
 
     Example call:
@@ -28,24 +28,7 @@ class pulsar:
     def __init__(self):
         pass
 
-    def default(self, name= 'PSR J0737-3039', mass= 1.25, axis=8.784E8, ecc=0.0878, omega=73.8, period =22.7E-3, angle=[90.14,90.28,90.56], eta=45, zeta=50, alpha=4, l=115):
-        """
-        Specifies the physical parameters of the double pulsar system. 
-        
-        Args: 
-           name: Name of the system
-           mass: Mass of the pulsar playing the role of the lensing companion (labelled B), with A being the pulsar whose delays are to be plotted (in units of solar mass)
-           axis: Semi-major axis of the orbit of the system (in metres)
-           ecc: Eccentricity of the system 
-           omega: Longitude of periastron (in degrees)
-           period: Spin period of pulsar A (in seconds)
-           angle: Orbital inclination angle (in degrees, can be a list)
-           eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane
-           zeta: Angle between the pulsar spin axis and the line of sight vector 
-           alpha: Angle between the pulsar spin axis and magnetic axis 
-           big_phi0: 
-        """
-        
+    def default(self, name= 'PSR J0737-3039', mass= 1.25, axis=8.784E8, ecc=0.0878, omega=73.8, period =22.7E-3, angle=[90.14,90.28,90.56], eta=45, zeta=50, alpha=4, phi_0=115):     
         
         self.name=name
         self.mass = mass
@@ -57,7 +40,7 @@ class pulsar:
         self.eta = eta 
         self.zeta = zeta 
         self.alpha = alpha 
-        self.l = l
+        self.phi_0 = phi_0
     
     def a(self, axis):
         self.axis = axis 
@@ -72,6 +55,8 @@ class pulsar:
         self.omega = omega
 
     def i(self, angle):
+        if not isinstance(angle, (list, set, tuple)):
+            angle = [angle]
         self.angle = angle 
 
     def t(self, period):
@@ -86,8 +71,8 @@ class pulsar:
     def alph(self, alpha):
         self.alpha = alpha 
 
-    def b_phi(self, l): 
-        self.l = l
+    def big_phi0(self, phi_0): 
+        self.phi_0 = phi_0
 
     def details(self):
         with suppress(AttributeError):
@@ -101,7 +86,7 @@ class pulsar:
             print("angle between spin axis and magnetic axis: ", self.alpha)
             print("to be filled: ", self.eta)
             print("opening angle: ", self.zeta)
-            print("to be filled: ", self.l)
+            print("to be filled: ", self.phi_0)
 
 demo=pulsar()
 demo.default(demo)

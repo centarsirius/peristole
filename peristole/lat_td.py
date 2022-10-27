@@ -12,7 +12,7 @@ def delay_lat(pulsar, flag=0, dummy='default'):
     """Latitudinal delay
     
     Provides latitudinal lensing delay for the dominant and subdominant images plotted as a function of 
-    longitude. Needs mass, axis, ecc, angle, omega, period, eta, zeta, alpha, big_phi0 to be already declared.
+    longitude. Needs mass, axis, ecc, angle, omega, period, eta, zeta, alpha, phi_0 to be already declared.
     
 
     Args: 
@@ -33,7 +33,7 @@ def delay_lat(pulsar, flag=0, dummy='default'):
     r = pulsar.axis*(1-pulsar.ecc**2)/(np.ones(len(phi))+pulsar.ecc*np.cos(phi))
     R_g = 2*G*pulsar.mass*M_0/c**2
     lat_delay = np.zeros((len(pulsar.angle), len(psi_vals)))
-    chi0=(np.sin(np.radians(pulsar.alpha))*np.sin(np.radians(pulsar.big_phi0)))/((np.cos(np.radians(pulsar.alpha))*np.sin(np.radians(pulsar.zeta)))-(np.cos(np.radians(pulsar.big_phi0))*np.sin(np.radians(pulsar.alpha))*np.cos(np.radians(pulsar.zeta))))
+    chi0=(np.sin(np.radians(pulsar.alpha))*np.sin(np.radians(pulsar.phi_0)))/((np.cos(np.radians(pulsar.alpha))*np.sin(np.radians(pulsar.zeta)))-(np.cos(np.radians(pulsar.phi_0))*np.sin(np.radians(pulsar.alpha))*np.cos(np.radians(pulsar.zeta))))
     
     for j in range(len(pulsar.angle)):
         R_s = r*(np.ones(len(psi_vals))-(np.sin(np.radians(pulsar.angle[j])))**2*(np.sin(psi_vals))**2)**0.5

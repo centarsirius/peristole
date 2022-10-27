@@ -16,7 +16,7 @@ class pulsar:
         eta: Angle between the ascending node of the orbit and the projection of the unit vector along the pulsar spin axis on the sky plane
         zeta: Angle between the pulsar spin axis and the line of sight vector 
         alpha: Angle between the pulsar spin axis and magnetic axis 
-        big_phi0: 
+        l: 
 
     Example call:
         example = pulsar()

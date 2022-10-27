@@ -9,7 +9,8 @@ M_0 = 1.989e30      # mass of the sun in SI units
 psi_vals = np.linspace(np.radians(89), np.radians(91), 1001) # psi is the true anomaly measured from the ascending node of the pulsar
 
 def delay_geom(pulsar, flag=0, dummy='default'):
-    """
+    """Geometric delay
+    
     Provides geometric time delay for the dominant and subdominant images plotted as a function of 
     longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     
@@ -65,7 +66,8 @@ def delay_geom(pulsar, flag=0, dummy='default'):
     
 
 def delay_grav(pulsar, flag=0, dummy='default'):
-    """
+    """Gravitational delay
+    
     Provides gravitational time delay for the dominant and subdominant images plotted as a function of 
     longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     
@@ -119,7 +121,8 @@ def delay_grav(pulsar, flag=0, dummy='default'):
     
 
 def delay_combined(pulsar, flag=0, dummy='default'):
-    """
+    """Combined delay
+    
     Shows the combined gravitational and geometric time delay plotted as a function of 
     changing longitude. Needs mass, axis, ecc, angle, omega to be already declared.
     

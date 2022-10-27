@@ -5,7 +5,7 @@ setup(
     version='1.0.9',
     license="MIT",
     url='https://github.com/centarsirius/peristole',
-    descriptions="PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL lEnsing",
+    descriptions="PERISTOLE : PackagE that geneRates tIme delay plotS caused by graviTatiOnaL lEnsing",
     packages=find_packages(),
     authors='Sachin Venkatesh, Gaurav Pundir'
 )

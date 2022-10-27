@@ -3,6 +3,6 @@
 PERISTOLE functions
 =====================
 
-Function to plot time delay graphs caused due to gravitational lensing.
+Function to plot time delay plots caused caused by gravitational lensing.
 
 .. automodule:: geo_grav_td

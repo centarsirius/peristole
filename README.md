@@ -6,9 +6,9 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6744000.svg)](https://doi.org/10.5281/zenodo.6744000)
 [![Documentation Status](https://readthedocs.org/projects/peristole/badge/?version=latest)](https://peristole.readthedocs.io/en/latest/?badge=latest)
 
-## PERISTOLE : PackagE that geneRates tIme delay plotS due To gravitatiOnaL lEnsing
+## PERISTOLE : PackagE that geneRates tIme delay plotS caused by graviTatiOnaL lEnsing
 
-PERISTOLE plots the time delay caused due to gravitational lensing and other aspects of a pulsar. Current support exists for graphing :
+PERISTOLE plots the time delay caused by gravitational lensing and other aspects of a pulsar. Current support exists for graphing :
 - latitudinal time delay
 - rotational time delay
 - geomterical time delay

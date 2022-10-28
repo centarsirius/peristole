@@ -17,7 +17,7 @@ PackagE that geneRates tIme delay plotS caused by graviTatiOnaL lEnsing
 - gravitational (Shapiro) delay
 - combined geometrical and gravitational time delay
 
-The inspiration for this project comes from papers written by Rafikov & Lai, [2005]( https://doi.org/10.1086/429146), [2006](https://doi.org/10.1086/500346) on the double pulsar system J0737-3039. The speciality being that the companion pulsar has an almost edge-on configuration with respect to our line of sight which
+The inspiration for this project comes from papers written by Rafikov & Lai, [2005]( https://doi.org/10.1086/429146), [2006](https://doi.org/10.1086/500346) on the double pulsar system J0737-3039. The speciality being that this is the only double pulsar system ever found and that the companion pulsar has an almost edge-on configuration with respect to our line of sight which
 > ***presents an unprecedented natural laboratory for testing our understanding of general relativity and pulsar magnetosphere physics***
 
 ## Installation
@@ -44,8 +44,10 @@ pip install -e .
 ```
 
  ## Demos
- Demos to graph all time delays are inbuilt and will plot a graph for default values given in Rafikov & Lai, [2006](https://doi.org/10.1086/500346). Please take a look at the docs for information on how to access demos.
+ A demo pulsar class named 'demo' containing all the values of the double pulsar system PSR J0737-3039 is auto-initiated when importing `peristole `. Passing 'demo' through the different functions will replicate the results from Rafikov & Lai, [2006](https://doi.org/10.1086/500346). 
 
+ You can have a hands on session with `peristole` using this [colab file](https://colab.research.google.com/drive/13hZFKaA8af8WxfGJpuKO_nlrwvw8D2Sl?usp=sharing)
+ 
  ## References
  - Rafikov, R. R., & Lai, D. 2006, ApJ, 641, 438,244, doi: [10.1086/500346245](http://doi.org/10.1086/500346)
  - Lai, D., & Rafikov, R. R. 2005, ApJL, 621, L41, doi: [10.1086/429146](http://doi.org/10.1086/429146)

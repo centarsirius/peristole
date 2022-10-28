@@ -84,9 +84,9 @@ class pulsar:
             print("orbital inclination angle(s): ", self.angle)
             print("spin period of primary self: ", self.period, " seconds")
             print("angle between spin axis and magnetic axis: ", self.alpha)
-            print("to be filled: ", self.eta)
+            print("angle between ascending node of the orbit and the sky plane projection of spin axis: ", self.eta)
             print("opening angle: ", self.zeta)
-            print("to be filled: ", self.phi_0)
+            print("lon. projection of magnetic axis on rotational axis plane: ", self.phi_0)
 
 demo=pulsar()
 demo.default(demo)

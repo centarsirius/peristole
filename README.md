@@ -46,7 +46,7 @@ pip install -e .
  ## Demos
  A demo pulsar class named 'demo' containing all the values of the double pulsar system PSR J0737-3039 is auto-initiated when importing `peristole `. Passing 'demo' through the different functions will replicate the results from Rafikov & Lai, [2006](https://doi.org/10.1086/500346). 
 
- You can have a hands on session with `peristole` using this [colab file](https://colab.research.google.com/drive/13hZFKaA8af8WxfGJpuKO_nlrwvw8D2Sl?usp=sharing)
+ You can have a hands on session with `peristole` on google colab [here](https://colab.research.google.com/drive/13hZFKaA8af8WxfGJpuKO_nlrwvw8D2Sl?usp=sharing)
  
  ## References
  - Rafikov, R. R., & Lai, D. 2006, ApJ, 641, 438,244, doi: [10.1086/500346245](http://doi.org/10.1086/500346)

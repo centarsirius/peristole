@@ -4,7 +4,7 @@
 ![](https://img.shields.io/github/license/centarsirius/peristole)
 [![pypi](https://img.shields.io/pypi/v/peristole)](https://pypi.org/project/peristole/)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6744000.svg)](https://doi.org/10.5281/zenodo.6744000)
-[![Documentation Status](https://readthedocs.org/projects/peristole/badge/?version=latest)](https://peristole.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/peristole/badge/?version=latest)](https://peristole.readthedocs.io/en/latest)
 
 PackagE that geneRates tIme delay plotS caused by graviTatiOnaL lEnsing
 

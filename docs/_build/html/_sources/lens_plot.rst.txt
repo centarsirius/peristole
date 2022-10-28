@@ -1,8 +1,0 @@
-.. _lens_plot:
-
-Correlation Functions
-=====================
-
-Function to perform correlations.
-
-.. automodule:: ca1

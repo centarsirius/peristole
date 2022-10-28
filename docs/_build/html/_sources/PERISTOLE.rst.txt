@@ -1,8 +1,0 @@
-.. _PERISTOLE:
-
-PERISTOLE functions
-=====================
-
-Function to plot time delay caused by gravitational lensing
-
-.. automodule:: ca1

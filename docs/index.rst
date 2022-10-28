@@ -1,5 +1,5 @@
 .. PERISTOLE documentation master file, created by
-   sphinx-quickstart on Sat Jun 25 14:44:06 2022.
+   sphinx-quickstart on Fri Oct 28 17:39:39 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -7,11 +7,16 @@ Welcome to PERISTOLE's documentation!
 =====================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 10
    :caption: Contents:
 
-   peristole.rst
-
+   installation.rst
+   tutorial.rst
+   amp.rst
+   geom_td.rst
+   lat_td.rst
+   rot_td.rst
+   pulsar_class.rst
 
 Indices and tables
 ==================

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Index &mdash; PERISTOLE 1.0.9 documentation</title>
+  <title>Rotational delay &mdash; PERISTOLE 1.0.9 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,8 +17,10 @@
         <script src="_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
-    <link rel="index" title="Index" href="#" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Pulsar class" href="pulsar_class.html" />
+    <link rel="prev" title="Latitudinal delay" href="lat_td.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -37,13 +39,13 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amp.html">Amplification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="geom_td.html">Geometric delay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lat_td.html">Latitudinal delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rot_td.html">Rotational delay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rotational delay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pulsar_class.html">Pulsar class</a></li>
 </ul>
 
@@ -61,8 +63,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Index</li>
+      <li>Rotational delay</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/rot_td.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -70,113 +73,67 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
 
-<h1 id="index">Index</h1>
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
 
-<div class="genindex-jumpbox">
- <a href="#A"><strong>A</strong></a>
- | <a href="#D"><strong>D</strong></a>
- | <a href="#M"><strong>M</strong></a>
- | <a href="#P"><strong>P</strong></a>
- 
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="rotational-delay">
+<span id="rot-td"></span><h1>Rotational delay<a class="headerlink" href="#rotational-delay" title="Permalink to this heading"></a></h1>
+<p>Function to plot the Ratitudinal time delay</p>
+<span class="target" id="module-peristole.rot_td"></span><dl class="py function">
+<dt class="sig sig-object py" id="peristole.rot_td.delay_rot">
+<span class="sig-prename descclassname"><span class="pre">peristole.rot_td.</span></span><span class="sig-name descname"><span class="pre">delay_rot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dummy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#peristole.rot_td.delay_rot" title="Permalink to this definition"></a></dt>
+<dd><p>Rotational lensing delay</p>
+<p>Provides rotational lensing delay for the dominant and subdominant images plotted as a function of
+longitude. Needs mass, axis, ecc, angle, omega, period, eta, zeta to be already declared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pulsar</strong> – An object of the pulsar class</p></li>
+<li><p><strong>flag</strong> – An optional argument which if set to 1 gives the plot for the subdominant case</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The rotational lensing delay plot</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example call of the function:</dt><dd><p>example = pulsar()
+…
+delay_rot(example)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
-<h2 id="A">A</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="amp.html#peristole.amp.amp_plot">amp_plot() (in module peristole.amp)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="D">D</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="geom_td.html#peristole.geom_td.delay_combined">delay_combined() (in module peristole.geom_td)</a>
-</li>
-      <li><a href="geom_td.html#peristole.geom_td.delay_geom">delay_geom() (in module peristole.geom_td)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="geom_td.html#peristole.geom_td.delay_grav">delay_grav() (in module peristole.geom_td)</a>
-</li>
-      <li><a href="lat_td.html#peristole.lat_td.delay_lat">delay_lat() (in module peristole.lat_td)</a>
-</li>
-      <li><a href="rot_td.html#peristole.rot_td.delay_rot">delay_rot() (in module peristole.rot_td)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="M">M</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    module
-
-      <ul>
-        <li><a href="amp.html#module-peristole.amp">peristole.amp</a>
-</li>
-        <li><a href="geom_td.html#module-peristole.geom_td">peristole.geom_td</a>
-</li>
-        <li><a href="lat_td.html#module-peristole.lat_td">peristole.lat_td</a>
-</li>
-        <li><a href="pulsar_class.html#module-peristole.pulsar_class">peristole.pulsar_class</a>
-</li>
-        <li><a href="rot_td.html#module-peristole.rot_td">peristole.rot_td</a>
-</li>
-      </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    peristole.amp
-
-      <ul>
-        <li><a href="amp.html#module-peristole.amp">module</a>
-</li>
-      </ul></li>
-      <li>
-    peristole.geom_td
-
-      <ul>
-        <li><a href="geom_td.html#module-peristole.geom_td">module</a>
-</li>
-      </ul></li>
-      <li>
-    peristole.lat_td
-
-      <ul>
-        <li><a href="lat_td.html#module-peristole.lat_td">module</a>
-</li>
-      </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li>
-    peristole.pulsar_class
-
-      <ul>
-        <li><a href="pulsar_class.html#module-peristole.pulsar_class">module</a>
-</li>
-      </ul></li>
-      <li>
-    peristole.rot_td
-
-      <ul>
-        <li><a href="rot_td.html#module-peristole.rot_td">module</a>
-</li>
-      </ul></li>
-      <li><a href="pulsar_class.html#peristole.pulsar_class.pulsar">pulsar (class in peristole.pulsar_class)</a>
-</li>
-  </ul></td>
-</tr></table>
-
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lat_td.html" class="btn btn-neutral float-left" title="Latitudinal delay" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pulsar_class.html" class="btn btn-neutral float-right" title="Pulsar class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

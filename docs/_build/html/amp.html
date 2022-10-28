@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to PERISTOLE’s documentation! &mdash; PERISTOLE 1.0.9 documentation</title>
+  <title>Amplification &mdash; PERISTOLE 1.0.9 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -19,7 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="installation.html" /> 
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -27,7 +28,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="#" class="icon icon-home"> PERISTOLE
+            <a href="index.html" class="icon icon-home"> PERISTOLE
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -38,14 +39,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Amplification</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="amp.html">Amplification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geom_td.html">Geometric delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lat_td.html">Latitudinal delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rot_td.html">Rotational delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulsar_class.html">Pulsar class</a></li>
 </ul>
 
         </div>
@@ -54,17 +51,17 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">PERISTOLE</a>
+          <a href="index.html">PERISTOLE</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
-      <li>Welcome to PERISTOLE’s documentation!</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Amplification</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/amp.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -96,35 +93,42 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="welcome-to-peristole-s-documentation">
-<h1>Welcome to PERISTOLE’s documentation!<a class="headerlink" href="#welcome-to-peristole-s-documentation" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="amp.html">Amplification</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geom_td.html">Geometric delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lat_td.html">Latitudinal delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rot_td.html">Rotational delay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pulsar_class.html">Pulsar class</a></li>
+<div class="section" id="amplification">
+<span id="amp"></span><h1>Amplification<a class="headerlink" href="#amplification" title="Permalink to this heading"></a></h1>
+<p>Function to plot the amplification factor</p>
+<span class="target" id="module-peristole.amp"></span><dl class="py function">
+<dt class="sig sig-object py" id="peristole.amp.amp_plot">
+<span class="sig-prename descclassname"><span class="pre">peristole.amp.</span></span><span class="sig-name descname"><span class="pre">amp_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pulsar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flag</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#peristole.amp.amp_plot" title="Permalink to this definition"></a></dt>
+<dd><p>Amplification factor plot</p>
+<p>Provides amplification factor for the dominant and subdominant images plotted as a function of
+longitude. Needs mass, axis, ecc, angle, omega to be already declared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pulsar</strong> – An object of the pulsar class</p></li>
+<li><p><strong>flag</strong> – An optional argument which if set to 1 gives the plot for the subdominant case</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The amplification factor plot</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Example call of the function:</dt><dd><p>example = pulsar()
+…
+amp_plot(example, 1)</p>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

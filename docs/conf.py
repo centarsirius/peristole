@@ -20,10 +20,9 @@ sys.path.insert(0, os.path.abspath('..'))
 project = 'PERISTOLE'
 copyright = '2022, Sachin Venkatesh, Gaurav Pundir'
 author = 'Sachin Venkatesh, Gaurav Pundir'
-root_doc='index'
-
+root_doc = 'index'
 # The full version, including alpha/beta/rc tags
-release = '1.0.0'
+release = '1.0.9'
 
 
 # -- General configuration ---------------------------------------------------

@@ -3,13 +3,11 @@ README.md
 setup.py
 peristole/__init__.py
 peristole/amp.py
-peristole/ca1.py
 peristole/geom_td.py
 peristole/grav_td.py
 peristole/lat_td.py
 peristole/pulsar_class.py
 peristole/rot_td.py
-peristole/test_cl.py
 peristole.egg-info/PKG-INFO
 peristole.egg-info/SOURCES.txt
 peristole.egg-info/dependency_links.txt

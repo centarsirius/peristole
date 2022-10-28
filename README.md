@@ -6,15 +6,18 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6744000.svg)](https://doi.org/10.5281/zenodo.6744000)
 [![Documentation Status](https://readthedocs.org/projects/peristole/badge/?version=latest)](https://peristole.readthedocs.io/en/latest/?badge=latest)
 
-## PERISTOLE : PackagE that geneRates tIme delay plotS caused by graviTatiOnaL lEnsing
+PackagE that geneRates tIme delay plotS caused by graviTatiOnaL lEnsing
 
-PERISTOLE plots the time delay caused by gravitational lensing and other aspects of a pulsar. Current support exists for graphing :
-- latitudinal time delay
-- rotational time delay
-- geomterical time delay
-- gravitational time delay
+``PERISTOLE`` plots the time delay caused by gravitational lensing and other aspects of a pulsar systems. Current support exists for graphing :
 
-The inspiration for this project came from papers written by Rafikov & Lai, [2005]( https://doi.org/10.1086/429146), [2006](https://doi.org/10.1086/500346) on the double pulsar system J0737-3039. The speciality of this double pulsar system being that the companion pulsar has an almost edge-on configuration with respect to our line of sight which
+- amplification factor
+- latitudinal lensing delay
+- rotational lensing delay
+- geomterical delay
+- gravitational (Shapiro) delay
+- combined geometrical and gravitational time delay
+
+The inspiration for this project comes from papers written by Rafikov & Lai, [2005]( https://doi.org/10.1086/429146), [2006](https://doi.org/10.1086/500346) on the double pulsar system J0737-3039. The speciality being that the companion pulsar has an almost edge-on configuration with respect to our line of sight which
 > ***presents an unprecedented natural laboratory for testing our understanding of general relativity and pulsar magnetosphere physics***
 
 ## Installation
@@ -41,7 +44,7 @@ pip install -e .
 ```
 
  ## Demos
- Demos to graph all time delays are inbuilt. Calling the function name without any inputs will plot a graph for default values given in Rafikov & Lai, [2006](https://doi.org/10.1086/500346).
+ Demos to graph all time delays are inbuilt and will plot a graph for default values given in Rafikov & Lai, [2006](https://doi.org/10.1086/500346). Please take a look at the docs for information on how to access demos.
 
 
  ## Future Goals:

@@ -52,8 +52,7 @@ pip install -e .
  - Lorimer, D. R. 2005, Living Reviews in Relativity, 8, 7,242, doi: [10.12942/lrr-2005-7243](http://doi.org/10.12942/lrr-2005-7)
  - Damour, T., & Taylor, J. H. 1992, PhRvD, 45, 1840, doi: [10.1103/PhysRevD.45.1840](http://doi.org/10.1103/PhysRevD.45.1840)
  - Komesaroff, M. M. 1970, Nature, 225, 612, doi: [10.1038/225612a0](http://doi.org/10.1038/225612a0)
-
-
+ - McLaughlin, M. A., Lyne, A. G., Lorimer, D. R., et al. 2004, ApJL, 616, L131, doi: [10.1086/426813245](http://doi.org/10.1086/426813)
 
  ## Future Goals:
  - We currently have a constrained use case but we hope to expand the input pool and also use the query system to fetch pulsar properties to provide a smooth user experience.

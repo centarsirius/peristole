@@ -8,7 +8,7 @@
 
 **P**ackag**E** that gene**R**ates t**I**me delay plot**S** caused by gravi**T**ati**O**na**L** l**E**nsing
 
-``PERISTOLE`` plots the time delay caused by gravitational lensing and other aspects of a pulsar systems. Current support exists for graphing :
+``PERISTOLE`` plots the time delay caused by gravitational lensing and other aspects of a pulsar system. Current support exists for graphing :
 
 - amplification factor
 - latitudinal lensing delay

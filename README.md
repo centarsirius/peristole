@@ -13,7 +13,7 @@
 - amplification factor
 - latitudinal lensing delay
 - rotational lensing delay
-- geomterical delay
+- geometrical delay
 - gravitational (Shapiro) delay
 - combined geometrical and gravitational time delay
 
